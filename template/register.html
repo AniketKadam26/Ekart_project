@@ -1,0 +1,61 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>registerPage</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <style>
+      body{
+        background-image: url("{% static 'image/pexels-lex-photography-1109543.jpg' %}");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-5">
+          <div class="col-md-4 mt-5  shadow-lg p-2 bg-transparent text-body rounded">
+            {% if errormsg %}
+            <div class="alert alert-danger">{{errormsg}}</div>
+            {% endif %}
+
+            {% if success %}
+            <div class="alert alert-success">{{success}}</div>
+            {% endif %}
+
+
+              <h1 class="text-center fw-semibold" style="color: rgb(0, 103, 98);"> Register Here </h1>
+              <form method="POST" action="">
+                {% csrf_token %}
+               
+    <div class="mb-3">
+      <label for="userinput" class="form-label">Username:</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" name="uname" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="inputPassword5" class="form-label">Password:</label>
+      <input type="password" id="inputPassword5" class="form-control" name="upassword">
+      
+      <div class="mb-3">
+        <label for="inputPassword5" class="form-label">Confirm Password:</label>
+        <input type="password" id="inputPassword5" class="form-control" name="cpassword" >
+        
+      </div>  
+    </div>
+    <div class="mb-3 text-center">
+      <input type="submit" class="btn btn-primary" value="Register Here">
+  <a href="/login">Already Register?</a>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

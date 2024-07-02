@@ -1,0 +1,49 @@
+<!doctype html>
+{% load static %}
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>lohinPage</title>
+        <style>
+          body{
+            background-image: url("{% static 'image/pexels-lex-photography-1109543.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+          }
+        </style>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      </head>
+      <body>
+        <div class="container">
+          <div class="row mt-5">
+              <div class="col-md-4 mt-5  shadow-lg p-3  bg-transparent text-body rounded">
+                {% if errormsg %}
+                    <div class="alert alert-danger">
+                      {{errormsg}}
+                    </div>
+                {% endif %}
+                  <h1 class="text-center fw-semibold" style="color: rgb(0, 103, 98);">Login Here </h1>
+                  <form method="POST" action="">
+                     {% csrf_token %}
+                   
+        <div class="mb-3">
+          <label for="userinput" class="form-label">Username:</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="uname">
+        </div>
+        <div class="mb-3">
+          <label for="inputPassword5" class="form-label">Password:</label>
+          <input type="password" id="inputPassword5" class="form-control" placeholder="@Xy123"  name="upassword">   
+        </div>
+        <div class="mb-3 text-center">
+          <input type="submit" class="btn btn-primary" value="Login">
+        </div>
+        </form>
+        </div>
+        </div>
+        </div>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      </body>
+    </html>
